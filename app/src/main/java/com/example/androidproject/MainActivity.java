@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Point;
-import android.location.Location;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.Gravity;
@@ -15,12 +14,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.widget.Toolbar;
 
 
 public class MainActivity  extends AppCompatActivity    {
-
     private LinearLayout.LayoutParams buttonLayoutParams;
     private LinearLayout.LayoutParams params;
     private LinearLayout.LayoutParams imageLoginParams;
@@ -29,7 +26,6 @@ public class MainActivity  extends AppCompatActivity    {
     //for DB - users
     public static String userName;
     public static String password;
-    public static Location location;
     public static int points;
 
     @Override
@@ -39,11 +35,12 @@ public class MainActivity  extends AppCompatActivity    {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         createLoginScreen();
-
     }
 
+
+
+
     public void createImageLogin(ImageView imageLogin){
-        imageLogin.setTag("imageLogin");
         imageLogin.setBackgroundResource(R.drawable.login);
         imageLogin.setLayoutParams(imageLoginParams);
         imageLogin.setAdjustViewBounds(true);
@@ -60,8 +57,7 @@ public class MainActivity  extends AppCompatActivity    {
         //create imageLogin Params:
         int halfScreenWidth = (int)(screenWidth *0.5);
         int quarterScreenWidth = (int)(halfScreenWidth * 0.40);
-        imageLoginParams =
-                new LinearLayout.LayoutParams(quarterScreenWidth,quarterScreenWidth);
+        imageLoginParams = new LinearLayout.LayoutParams(quarterScreenWidth,quarterScreenWidth);
         imageLoginParams.setMargins(0,50,0,50);
         imageLoginParams.gravity = Gravity.CENTER;
     }
@@ -116,7 +112,7 @@ public class MainActivity  extends AppCompatActivity    {
 
     public void createLoginScreen(){
         LinearLayout mainActivityLayout = findViewById(R.id.mainLayout);
-        mainActivityLayout.setBackgroundResource(R.drawable.backgroundlogin);
+        mainActivityLayout.setBackgroundResource(R.drawable.backgroundcookieblue);
 
         initImageLoginParams();
         ImageView imageLogin = new ImageView(this);
@@ -166,7 +162,9 @@ public class MainActivity  extends AppCompatActivity    {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainActivity.this,
-                        ScoreSheetActivity.class);
+                        MapsActivity.class);
+                //Intent myIntent = new Intent(MainActivity.this,
+             //           ScoreSheetActivity.class);
                 startActivity(myIntent);
             }
         });
@@ -176,16 +174,20 @@ public class MainActivity  extends AppCompatActivity    {
 
     public void  startNewGame(){
         //save this for DB when the game finish
-        this.userName = passwordEditText.getText().toString();
+        this.userName = userNameEditText.getText().toString();
         this.password =passwordEditText.getText().toString();
-        //TODO: location also
         if (this.userName.isEmpty() || this.password.isEmpty()){
-            Toast.makeText(MainActivity.this , "You must enter a username and password both ! ", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this , "You must enter a username and password both!", Toast.LENGTH_SHORT).show();
         }
         else {
+
             Intent myIntent = new Intent(MainActivity.this,
                     GameActivity.class);
+            myIntent.putExtra(Global_Variable.USER_NAME_FOR_MOVE_INTENT,this.userName);
+            myIntent.putExtra(Global_Variable.PASSWORD_FOR_MOVE_INTENT, this.password);
             startActivity(myIntent);
+
+
         }
     }
 

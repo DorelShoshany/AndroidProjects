@@ -1,0 +1,284 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.androidproject"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+8-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml
+10
+11    <!--
+12         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+13         Google Maps Android API v2, but you must specify either coarse or fine
+14         location permissions for the 'MyLocation' functionality.
+15    -->
+16    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+16-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:10:5-79
+16-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:10:22-76
+17    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+17-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:11:5-81
+17-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:11:22-78
+18    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+18-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:10:5-76
+18-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:10:22-73
+19    <uses-permission android:name="android.permission.INTERNET" /> <!-- Include required permissions for Google Maps API to run. -->
+19-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:11:5-67
+19-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:11:22-64
+20    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+20-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\deb40e6ea3773bcf263ddc7b7e11a4bd\play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+20-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\deb40e6ea3773bcf263ddc7b7e11a4bd\play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
+21
+22    <uses-feature
+22-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\deb40e6ea3773bcf263ddc7b7e11a4bd\play-services-maps-17.0.0\AndroidManifest.xml:26:5-28:35
+23        android:glEsVersion="0x00020000"
+23-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\deb40e6ea3773bcf263ddc7b7e11a4bd\play-services-maps-17.0.0\AndroidManifest.xml:27:9-41
+24        android:required="true" />
+24-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\deb40e6ea3773bcf263ddc7b7e11a4bd\play-services-maps-17.0.0\AndroidManifest.xml:28:9-32
+25
+26    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+26-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b66c8ddbbaaa161647e92d3ae9c85ed1\play-services-measurement-api-17.2.1\AndroidManifest.xml:24:5-68
+26-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b66c8ddbbaaa161647e92d3ae9c85ed1\play-services-measurement-api-17.2.1\AndroidManifest.xml:24:22-65
+27    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+27-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:26:5-82
+27-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:26:22-79
+28    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+28-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:26:5-110
+28-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:26:22-107
+29
+30    <application
+30-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:13:5-47:19
+31        android:allowBackup="true"
+31-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:14:9-35
+32        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+32-->[androidx.core:core:1.0.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\841650337b2a5f23ac33f3edb3c61e72\core-1.0.1\AndroidManifest.xml:22:18-86
+33        android:debuggable="true"
+34        android:icon="@mipmap/ic_launcher"
+34-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:15:9-43
+35        android:label="@string/app_name"
+35-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:16:9-41
+36        android:roundIcon="@drawable/monster"
+36-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:17:9-46
+37        android:supportsRtl="true"
+37-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:18:9-35
+38        android:testOnly="true"
+39        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+39-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:19:9-65
+40        android:usesCleartextTraffic="true" >
+40-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:20:9-44
+41
+42        <!--
+43             The API key for Google Maps-based APIs is defined as a string resource.
+44             (See the file "res/values/google_maps_api.xml").
+45             Note that the API key is linked to the encryption key used to sign the APK.
+46             You need a different API key for each encryption key, including the release key that is used to
+47             sign the APK for publishing.
+48             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+49        -->
+50        <meta-data
+50-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:30:9-32:55
+51            android:name="com.google.android.geo.API_KEY"
+51-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:31:13-58
+52            android:value="@string/google_maps_key" />
+52-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:32:13-52
+53
+54        <activity
+54-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:34:9-36:68
+55            android:name="com.example.androidproject.MapsActivity"
+55-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:35:13-41
+56            android:label="@string/title_activity_maps" />
+56-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:36:13-56
+57        <activity android:name="com.example.androidproject.GameOver" />
+57-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:37:9-46
+57-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:37:19-43
+58        <activity android:name="com.example.androidproject.ScoreSheetActivity" />
+58-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:38:9-56
+58-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:38:19-53
+59        <activity android:name="com.example.androidproject.GameActivity" />
+59-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:39:9-50
+59-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:39:19-47
+60        <activity android:name="com.example.androidproject.MainActivity" >
+60-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:40:9-46:20
+60-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:40:19-47
+61            <intent-filter>
+61-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:41:13-45:29
+62                <action android:name="android.intent.action.MAIN" />
+62-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:42:17-69
+62-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:42:25-66
+63
+64                <category android:name="android.intent.category.LAUNCHER" />
+64-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:44:17-77
+64-->C:\Users\Dorel\Desktop\AndroidProjects\app\src\main\AndroidManifest.xml:44:27-74
+65            </intent-filter>
+66        </activity>
+67        <!-- Autocomplete -->
+68        <activity
+68-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:16:9-23:20
+69            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+69-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:17:13-91
+70            android:exported="false"
+70-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:18:13-37
+71            android:hardwareAccelerated="true"
+71-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:19:13-47
+72            android:label="@string/places_autocomplete_label"
+72-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:20:13-62
+73            android:theme="@style/PlacesAutocompleteThemeOverlay"
+73-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:21:13-66
+74            android:windowSoftInputMode="stateAlwaysVisible|adjustPan" >
+74-->[com.google.android.libraries.places:places:1.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b32d8538a361fd4ba28774623c5d0a62\jetified-places-1.1.0\AndroidManifest.xml:22:13-71
+75        </activity> <!-- Needs to be explicitly declared on P+ -->
+76        <uses-library
+76-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\deb40e6ea3773bcf263ddc7b7e11a4bd\play-services-maps-17.0.0\AndroidManifest.xml:33:9-35:40
+77            android:name="org.apache.http.legacy"
+77-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\deb40e6ea3773bcf263ddc7b7e11a4bd\play-services-maps-17.0.0\AndroidManifest.xml:34:13-50
+78            android:required="false" />
+78-->[com.google.android.gms:play-services-maps:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\deb40e6ea3773bcf263ddc7b7e11a4bd\play-services-maps-17.0.0\AndroidManifest.xml:35:13-37
+79
+80        <service
+80-->[com.google.firebase:firebase-database:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\436eb20eb5250e76a4e30b321e691f2d\firebase-database-19.2.0\AndroidManifest.xml:29:9-35:19
+81            android:name="com.google.firebase.components.ComponentDiscoveryService"
+81-->[com.google.firebase:firebase-database:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\436eb20eb5250e76a4e30b321e691f2d\firebase-database-19.2.0\AndroidManifest.xml:30:13-84
+82            android:directBootAware="true"
+82-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\dd993fbff8dec94bd0f0f9b9a740ab8a\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+83            android:exported="false" >
+83-->[com.google.firebase:firebase-database:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\436eb20eb5250e76a4e30b321e691f2d\firebase-database-19.2.0\AndroidManifest.xml:31:13-37
+84            <meta-data
+84-->[com.google.firebase:firebase-database:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\436eb20eb5250e76a4e30b321e691f2d\firebase-database-19.2.0\AndroidManifest.xml:32:13-34:85
+85                android:name="com.google.firebase.components:com.google.firebase.database.DatabaseRegistrar"
+85-->[com.google.firebase:firebase-database:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\436eb20eb5250e76a4e30b321e691f2d\firebase-database-19.2.0\AndroidManifest.xml:33:17-109
+86                android:value="com.google.firebase.components.ComponentRegistrar" />
+86-->[com.google.firebase:firebase-database:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\436eb20eb5250e76a4e30b321e691f2d\firebase-database-19.2.0\AndroidManifest.xml:34:17-82
+87            <meta-data
+87-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:36:13-38:85
+88                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+88-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:37:17-109
+89                android:value="com.google.firebase.components.ComponentRegistrar" />
+89-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:38:17-82
+90            <meta-data
+90-->[com.google.firebase:firebase-firestore:21.3.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\c4b469c2165cd2acf6b1640c1c981f5d\jetified-firebase-firestore-21.3.1\AndroidManifest.xml:20:13-22:85
+91                android:name="com.google.firebase.components:com.google.firebase.firestore.FirestoreRegistrar"
+91-->[com.google.firebase:firebase-firestore:21.3.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\c4b469c2165cd2acf6b1640c1c981f5d\jetified-firebase-firestore-21.3.1\AndroidManifest.xml:21:17-111
+92                android:value="com.google.firebase.components.ComponentRegistrar" />
+92-->[com.google.firebase:firebase-firestore:21.3.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\c4b469c2165cd2acf6b1640c1c981f5d\jetified-firebase-firestore-21.3.1\AndroidManifest.xml:22:17-82
+93            <meta-data
+93-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b66c8ddbbaaa161647e92d3ae9c85ed1\play-services-measurement-api-17.2.1\AndroidManifest.xml:30:13-32:85
+94                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+94-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b66c8ddbbaaa161647e92d3ae9c85ed1\play-services-measurement-api-17.2.1\AndroidManifest.xml:31:17-139
+95                android:value="com.google.firebase.components.ComponentRegistrar" />
+95-->[com.google.android.gms:play-services-measurement-api:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\b66c8ddbbaaa161647e92d3ae9c85ed1\play-services-measurement-api-17.2.1\AndroidManifest.xml:32:17-82
+96            <meta-data
+96-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:32:13-34:85
+97                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+97-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:33:17-96
+98                android:value="com.google.firebase.components.ComponentRegistrar" />
+98-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:34:17-82
+99        </service>
+100
+101        <activity
+101-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:24:9-31:50
+102            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+102-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:25:13-85
+103            android:excludeFromRecents="true"
+103-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:26:13-46
+104            android:exported="true"
+104-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:27:13-36
+105            android:launchMode="singleTask"
+105-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:28:13-44
+106            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+106-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:29:13-102
+107            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+107-->[com.google.firebase:firebase-auth:19.2.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\4b931710121d0446242c89c96d20f171\firebase-auth-19.2.0\AndroidManifest.xml:30:13-72
+108
+109        <receiver
+109-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:37:9-44:20
+110            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+110-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:38:13-78
+111            android:exported="true"
+111-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:39:13-36
+112            android:permission="com.google.android.c2dm.permission.SEND" >
+112-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:40:13-73
+113            <intent-filter>
+113-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:41:13-43:29
+114                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+114-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:42:17-81
+114-->[com.google.firebase:firebase-iid:19.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\940050aecb34b79e9f65acb8208a69e1\firebase-iid-19.0.0\AndroidManifest.xml:42:25-78
+115            </intent-filter>
+116        </receiver>
+117
+118        <activity
+118-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\e263051982046be250276351f15cd037\play-services-base-17.1.0\AndroidManifest.xml:23:9-26:75
+119            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+119-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\e263051982046be250276351f15cd037\play-services-base-17.1.0\AndroidManifest.xml:24:13-79
+120            android:exported="false"
+120-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\e263051982046be250276351f15cd037\play-services-base-17.1.0\AndroidManifest.xml:25:13-37
+121            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+121-->[com.google.android.gms:play-services-base:17.1.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\e263051982046be250276351f15cd037\play-services-base-17.1.0\AndroidManifest.xml:26:13-72
+122
+123        <provider
+123-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\dd993fbff8dec94bd0f0f9b9a740ab8a\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+124            android:name="com.google.firebase.provider.FirebaseInitProvider"
+124-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\dd993fbff8dec94bd0f0f9b9a740ab8a\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+125            android:authorities="com.example.androidproject.firebaseinitprovider"
+125-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\dd993fbff8dec94bd0f0f9b9a740ab8a\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+126            android:exported="false"
+126-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\dd993fbff8dec94bd0f0f9b9a740ab8a\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+127            android:initOrder="100" />
+127-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\dd993fbff8dec94bd0f0f9b9a740ab8a\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+128
+129        <receiver
+129-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:29:9-33:20
+130            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+130-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:30:13-85
+131            android:enabled="true"
+131-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:31:13-35
+132            android:exported="false" >
+132-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:32:13-37
+133        </receiver>
+134        <receiver
+134-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:34:9-42:20
+135            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+135-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:35:13-100
+136            android:enabled="true"
+136-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:36:13-35
+137            android:exported="true"
+137-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:37:13-36
+138            android:permission="android.permission.INSTALL_PACKAGES" >
+138-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:38:13-69
+139            <intent-filter>
+139-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:39:13-41:29
+140                <action android:name="com.android.vending.INSTALL_REFERRER" />
+140-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:40:17-79
+140-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:40:25-76
+141            </intent-filter>
+142        </receiver>
+143
+144        <service
+144-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:44:9-47:40
+145            android:name="com.google.android.gms.measurement.AppMeasurementService"
+145-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:45:13-84
+146            android:enabled="true"
+146-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:46:13-35
+147            android:exported="false" />
+147-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:47:13-37
+148        <service
+148-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:48:9-52:72
+149            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+149-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:49:13-87
+150            android:enabled="true"
+150-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:50:13-35
+151            android:exported="false"
+151-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:51:13-37
+152            android:permission="android.permission.BIND_JOB_SERVICE" />
+152-->[com.google.android.gms:play-services-measurement:17.2.1] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\2747ca5e8ec72d1c1aa1552eb3fa3bd9\play-services-measurement-17.2.1\AndroidManifest.xml:52:13-69
+153
+154        <meta-data
+154-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\8884bdad37ebe5664213e637c5043300\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+155            android:name="com.google.android.gms.version"
+155-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\8884bdad37ebe5664213e637c5043300\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+156            android:value="@integer/google_play_services_version" />
+156-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Dorel\.gradle\caches\transforms-2\files-2.1\8884bdad37ebe5664213e637c5043300\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+157    </application>
+158
+159</manifest>

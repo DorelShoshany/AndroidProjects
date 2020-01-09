@@ -4,8 +4,12 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.graphics.Point;
-import android.location.Location;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -15,15 +19,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class GameActivity extends AppCompatActivity implements View.OnTouchListener{
-    private final String TAG = MainActivity.class.getSimpleName();
+public class GameActivity extends AppCompatActivity implements View.OnTouchListener , SensorEventListener{
+
     private boolean isToCreateRainPiano;
     List <Integer> hearts = new ArrayList<>();
     private int currentLife = Global_Variable.LIFE_CHANCES;
@@ -37,13 +38,19 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
     private int playerSize;
     public TextView pointsText;
     public static LinearLayout linear_heart;
-    private DatabaseReference mDatabase;
+    private SensorManager manager;
+    public String userName;
+    public String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDatabase = FirebaseDatabase.getInstance().getReference();
         isToCreateRainPiano = true;
+
+        userName = getIntent().getStringExtra(Global_Variable.USER_NAME_FOR_MOVE_INTENT);
+        password=getIntent().getStringExtra(Global_Variable.PASSWORD_FOR_MOVE_INTENT);
+
+
         setContentView(R.layout.activity_game);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -54,37 +61,23 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         this.screenWidth = size.x;
         this.currentLife= Global_Variable.LIFE_CHANCES;
         this.linear_heart = new LinearLayout(this);
+
+        manager = (SensorManager)getSystemService(SENSOR_SERVICE);
+        Sensor accel=manager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        manager.registerListener(this, accel, SensorManager.SENSOR_DELAY_NORMAL);
+
         createLinearHeart();
         createAttacksLinearWrapper();
         createPlayer();
         createPianoFall();
     }
 
-
-    ///DATA BASE //
-
-    private void writeNewUser(String userId, String userName, String UserPassword, Location location, int points) {
-        User user = new User(userName, UserPassword,location,points);
-        mDatabase.child("users").child(userId).setValue(user);
-    }
-
-    //TODO: write this when user that already exist try to login and we need to change the location
-    private void updateUserLoction (String userId,Location location, int points){
-        mDatabase.child("users").child(userId).child("location").setValue(location);
-        mDatabase.child("users").child(userId).child("points").setValue(points);
-    }
-
-    // END DATA BASE //
-
-
-
     public void createAttacksLinearWrapper(){
         attacksLinearWrapper = new RelativeLayout(this);
-        int halfScreenWidth = (int)(screenWidth *0.15);
-        int quarterScreenWidth = (int)(halfScreenWidth * 0.25);
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.MATCH_PARENT);
         attacksLinearWrapper.setLayoutParams(params);
         attacksLinearWrapper.setBackgroundResource(R.color.pink);
+        attacksLinearWrapper.setOnTouchListener(this);
         LinearLayout mainActivityLayout = findViewById(R.id.gameLayout);
         mainActivityLayout.addView(attacksLinearWrapper);
     }
@@ -107,7 +100,7 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         piano.setAdjustViewBounds(true);
         piano.setScaleType(ImageView.ScaleType.FIT_XY);
         this.pianoSize = (int)(screenWidth *0.15);
-        piano.setLayoutParams( new LinearLayout.LayoutParams(pianoSize,pianoSize));
+        piano.setLayoutParams( new RelativeLayout.LayoutParams(pianoSize,pianoSize));
         return piano;
     }
 
@@ -116,18 +109,17 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         cookie.setImageResource(R.drawable.cookie);
         cookie.setAdjustViewBounds(true);
         cookie.setScaleType(ImageView.ScaleType.FIT_XY);
-        this.cookieSize = (int)(screenWidth *0.13);
-        cookie.setLayoutParams( new LinearLayout.LayoutParams(cookieSize, cookieSize));
+        this.cookieSize = (int)(screenWidth *0.15);
+        cookie.setLayoutParams( new RelativeLayout.LayoutParams(cookieSize, cookieSize));
         return cookie;
     }
 
     public void createPianoFall(){
-        Thread t = new Thread() {
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                try {
-                    while (isToCreateRainPiano) {
-                        Thread.sleep(1000);
+                    if (isToCreateRainPiano) {
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
@@ -145,10 +137,9 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
                             }
                         });
                     }
-                }
-                catch (InterruptedException e)
-                {}}};
-        t.start();
+                createPianoFall();
+            }
+        }, 1000);
     }
 
 
@@ -177,29 +168,39 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
                                     v1.setY(0);
                                     v1.animate().cancel();
                                     attacksLinearWrapper.removeView(v1);
-                                    }
+                                }
 
                                 else {
-                                   // myPoints+=Global_Variable.POINTS_PER_PIANO_ATTACK;
-                                  pointsText.setText(Global_Variable.POINTS_TEXT + myPoints);
+                                    // myPoints+=Global_Variable.POINTS_PER_PIANO_ATTACK;
+                                    pointsText.setText(Global_Variable.POINTS_TEXT + myPoints);
                                 }
                             }
                         });
                     }
-                }catch (InterruptedException e) {}}};
+                }catch (InterruptedException e) {}
+            };
+
+        };
         t.start();
     }
+
     private static boolean isCllision(ImageView v1, ImageView v2) {
         return ((v1.getX() <= v2.getX() + pianoSize && v2.getX() <= v1.getX() + v1.getWidth())
                 && (v1.getY() <= v2.getY() + pianoSize && v2.getY() <= v1.getY() + v1.getHeight()));
     }
 
+    //TODO: check the sensor + piano on android's Yarden + location
     private ImageView getElementProducer(){
         final ImageView pianoAttack = createPiano();
-        pianoAttack.setX(new Random().nextInt(screenWidth - pianoSize));
+        //Random r = new Random();
+        //float rangeMax = attacksLinearWrapper.getX();
+        //float rangeMin = pianoAttack.getX();
+        //pianoAttack.setX(new Random().nextInt(d - c));
+        //pianoAttack.setX(rangeMin + (rangeMax - rangeMin) * r.nextDouble());
+        pianoAttack.setX(new Random().nextInt(screenWidth-pianoSize));
         pianoAttack.animate()
                 .translationY(this.screenHeight)
-                .setDuration(5000)
+                .setDuration(Global_Variable.DURATION_OF_PIANO_ANIMATE)
                 .withEndAction(new Runnable() {
                     @Override
                     public void run() {
@@ -216,7 +217,7 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
 
         cookieAttack.animate()
                 .translationY(this.screenHeight)
-                .setDuration(5000)
+                .setDuration(Global_Variable.DURATION_OF_PIANO_ANIMATE)
                 .withEndAction(new Runnable() {
                     @Override
                     public void run() {
@@ -237,8 +238,6 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         this.linear_heart.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,quarterScreenWidth));
         this.linear_heart.setBackgroundResource(R.color.purple);
         this.linear_heart.setOrientation(LinearLayout.HORIZONTAL);
-
-        //TODO: funtion that calculte the points When there is a coliistion + points
 
         pointsText.setText(Global_Variable.POINTS_TEXT + myPoints);
         pointsText.setTextColor(getResources().getColor(R.color.white));
@@ -317,7 +316,6 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         float x = event.getX();
-
         if (event.getAction() == MotionEvent.ACTION_MOVE)
             player.setX(x - (player.getWidth() / 2f));
         return true;
@@ -328,22 +326,16 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
         openGameOverActivity();
     }
 
+
     private void openGameOverActivity() {
         isToCreateRainPiano = false;
-        //FOR DB:
+        //for db:
         MainActivity.points = myPoints;
-        //
-
-        //TODO: if the DB size is < 10 AND the user not exist -> add NEW USER
-        //TODO: if the DB size is < 10 AND the user is exist -> if his points grow -> update the user:
-        //TODO: if the DB == 10:
-        //TODO: check if user is alrady exist -> if his points grow -> update
-        //TODO: if the user not exist -> give me the minimum points from DB
-        //TODO: if the minimun < points -> add new user
-        String id = mDatabase.push().getKey();
-        writeNewUser(id, MainActivity.userName, MainActivity.password, MainActivity.location, MainActivity.points);
-
+        //move to next screen:
         Intent myIntent = new Intent(GameActivity.this, GameOver.class);
+        myIntent.putExtra(Global_Variable.POINTS_FOR_MOVE_INTENT, myPoints);
+        myIntent.putExtra(Global_Variable.USER_NAME_FOR_MOVE_INTENT,this.userName);
+        myIntent.putExtra(Global_Variable.PASSWORD_FOR_MOVE_INTENT, this.password);
         finish();
         try {
             startActivity(myIntent);
@@ -362,6 +354,31 @@ public class GameActivity extends AppCompatActivity implements View.OnTouchListe
     }
 
 
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+        if (event.sensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            player.animate()
+                    .translationX((int)(player.getWidth()* (-event.values[0])*Global_Variable.SPEED_OF_PLAYER))
+                    .setDuration(Global_Variable.DURATION_OF_PIANO_ANIMATE)
+                    .withEndAction(new Runnable() {
+                        @Override
+                        public void run() {
+                            float nextX = player.getX();
+                            nextX = nextX > 0? nextX:0;
+                            nextX = nextX < screenWidth - player.getWidth()? nextX:screenWidth-player.getWidth();
+                            player.setX(nextX);
+                        }
+                    })
+                    .start();
+            float nextX = player.getX();
+            nextX = nextX > 0? nextX:0;
+            nextX = nextX < screenWidth - player.getWidth()? nextX:screenWidth-player.getWidth();
+            player.setX(nextX);
+        }
+    }
 
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
 }
